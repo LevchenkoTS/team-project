@@ -50,7 +50,10 @@ public class PlayerTest {
 
         player.play(game1, 2);
         player.play(game2, 3);
-        player.play(game3, 3);
+        player.play(game3, 1);
+
+        player.sumGenre("Genre1");
+        player.sumGenre("Genre3");
 
         String expected = "Game2";
         Game actual = player.mostPlayerByGenre("Genre1");
