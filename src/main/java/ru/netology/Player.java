@@ -37,12 +37,13 @@ public class Player {
     public int play(Game game, int hours) {
         game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {
-            playedTime.put(game, playedTime.get(game));
+            playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            playedTime.put(game, hours);
+            throw new RuntimeException("Game " + game.getTitle() + " not install");
         }
         return playedTime.get(game);
     }
+
 
 
     /** Метод принимает жанр игры (одно из полей объекта игры) и
@@ -52,12 +53,11 @@ public class Player {
         for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
-            } else {
-                sum = 0;
             }
         }
         return sum;
     }
+
 
     /** Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
      Если в игры этого жанра не играли, возвращается null */
