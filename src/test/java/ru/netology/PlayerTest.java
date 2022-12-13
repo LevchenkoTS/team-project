@@ -36,6 +36,7 @@ public class PlayerTest {
         int actual = player.sumGenre(game.getGenre());
         assertEquals(expected, actual);
     }
+
     @Test
     public void mostPlayerByGenre() {
         GameStore store = new GameStore();
