@@ -57,7 +57,7 @@ public class PlayerTest {
         player.sumGenre("Genre3");
 
         String expected = "Game2";
-        Game actual = player.mostPlayerByGenre("Genre1");
+        String actual = player.mostPlayerByGenre("Genre1");
         assertEquals(expected, actual);
     }
 }
