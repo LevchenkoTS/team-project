@@ -80,7 +80,7 @@ public class GameStoreTest {
         store.addPlayTime("Игрок2", 7);
         store.addPlayTime("Игрок3", 7);
 
-        String[] expected = {"Игрок2", "Игрок3"};
+        String[] expected = {"Игрок2", "Игрок 3"};
         String[] actual = {store.getMostPlayer()};
 
 
@@ -100,8 +100,8 @@ public class GameStoreTest {
     @Test
     public void mostPlayerTimeWhenPlayedOneOur() {
 
-        store.addPlayTime("Игрок1", 1);
-        store.addPlayTime("Игрок2", 0);
+        store.addPlayTime("Игрок1", 2);
+        store.addPlayTime("Игрок2", 1);
 
         String expected = "Игрок1";
         String actual = store.getMostPlayer();
@@ -130,7 +130,7 @@ public class GameStoreTest {
         store.addPlayTime("Игрок3", 7);
 
 
-        int expected = 9;
+        int expected = 12;
         int actual = store.getSumPlayedTime();
 
         assertEquals(expected, actual);
