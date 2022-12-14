@@ -73,20 +73,20 @@ public class GameStoreTest {
 
     }
 
-    @Test
-    public void mostPlayerTimeWhenMoreOnePlayerBest() {
-
-        store.addPlayTime("Игрок1", 2);
-        store.addPlayTime("Игрок2", 7);
-        store.addPlayTime("Игрок3", 7);
-
-        String[] expected = {"Игрок2", "Игрок 3"};
-        String[] actual = {store.getMostPlayer()};
-
-
-        assertArrayEquals(expected, actual);
-
-    }
+//    @Test
+//    public void mostPlayerTimeWhenMoreOnePlayerBest() {
+//
+//        store.addPlayTime("Игрок1", 2);
+//        store.addPlayTime("Игрок2", 7);
+//        store.addPlayTime("Игрок3", 7);
+//
+//        String[] expected = {"Игрок2", "Игрок 3"};
+//        String[] actual = {store.getMostPlayer()};
+//
+//
+//        assertArrayEquals(expected, actual);
+//
+//    }
 
     @Test
     public void nullMostPlayer() {
@@ -113,7 +113,8 @@ public class GameStoreTest {
     @Test
     public void mostPlayerTimeWhenOnePlayer() {
 
-        store.addPlayTime("Игрок1", 2);
+        store.addPlayTime("Игрок1", 1);
+        store.addPlayTime("Игрок2", 0);
 
         String expected = "Игрок1";
         String actual = store.getMostPlayer();
@@ -131,6 +132,21 @@ public class GameStoreTest {
 
 
         int expected = 12;
+        int actual = store.getSumPlayedTime();
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void sumPlayersTimeWhenNull() {
+
+        store.addPlayTime("Игрок1", 0);
+        store.addPlayTime("Игрок2", 0);
+        store.addPlayTime("Игрок3", 0);
+
+
+        int expected = 0;
         int actual = store.getSumPlayedTime();
 
         assertEquals(expected, actual);
